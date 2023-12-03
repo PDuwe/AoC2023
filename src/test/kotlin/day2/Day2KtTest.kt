@@ -10,19 +10,21 @@ import org.junit.jupiter.params.provider.CsvSource
 class Day2KtTest {
 
     @Nested
-    inner class MaptRoundToOutcomeTest {
+    inner class MapRoundToOutcomeTest {
         @ParameterizedTest
         @CsvSource(
-            "3 blue, 4 red:3:0:4",
-            "3 green, 4 red:0:3:4",
-            "3 blue, 4 green:3:4:0",
-            "8 green, 6 blue, 20 red:6:8:20",
+            "3 blue, 4 red:4:0:3",
+            "3 green, 4 red:4:3:0",
+            "3 blue, 4 green:0:4:3",
+            "6 blue, 16 green:0:16:6",
+            "9 blue, 13 green, 1 red:1:13:9",
+            "8 green, 6 blue, 20 red:20:8:6",
             delimiter = ':')
         fun buildsCorrectOutcomes(input: String, red: Int, green: Int, blue: Int) {
             val outcome = GameOutcome(red, green, blue)
-            assertEquals(mapRoundToOutcome(input).blue, outcome.blue)
-            assertEquals(mapRoundToOutcome(input).green, outcome.green)
-            assertEquals(mapRoundToOutcome(input).red, outcome.red)
+            assertEquals(outcome.red, mapRoundToOutcome(input).red)
+            assertEquals(outcome.green, mapRoundToOutcome(input).green)
+            assertEquals(outcome.blue, mapRoundToOutcome(input).blue)
         }
     }
 }

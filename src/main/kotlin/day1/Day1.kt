@@ -14,9 +14,9 @@ fun second(): Int =
     mapStringsToNumbers(readInput("1").toMutableList())
         .map { line ->
             line.filter { char -> char.isDigit() }
-        }.map { digits ->
+        }.sumOf { digits ->
             ("${digits.first()}" + "${digits.last()}").toInt()
-        }.sum()
+        }
 
 fun mapStringsToNumbers(input: MutableList<String>): MutableList<String> {
     val stringToNumber = listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
@@ -28,7 +28,7 @@ fun mapStringsToNumbers(input: MutableList<String>): MutableList<String> {
             lineBuffer += char
             for ((numberIndex, number) in stringToNumber.withIndex()) {
                 if (lineBuffer.contains(number)) {
-                    lineBuffer = lineBuffer.replace(number, numberIndex.plus(1).toString())
+                    lineBuffer = lineBuffer.replace(number, numberIndex.plus(1).toString() + number.last())
                 }
             }
         }

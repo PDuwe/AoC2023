@@ -52,6 +52,7 @@ fun markAdjacentFields(toBeMarked: Array<Array<Boolean>>, xAxis: Int, yAxis: Int
     toBeMarked[xAxis + 1][yAxis + 1] = true
 }
 
+// ToDo: Rework
 fun getNumberFromIndex(x: Int, y: Int): Int {
     if (!input[y][x].isDigit()) {
         return 0
