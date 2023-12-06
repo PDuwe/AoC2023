@@ -31,4 +31,4 @@ bin/
 .DS_Store
 
 ### AoC ###
-src/main/resources
+src/main/resources/*

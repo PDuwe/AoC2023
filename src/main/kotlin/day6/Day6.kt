@@ -1,7 +1,6 @@
 package day6
 
 import readInput
-import java.math.BigInteger
 
 val SPEED_INCREASE_PER_SECOND = 1
 
@@ -13,16 +12,9 @@ fun first(): Int = parseInput(input).map {
     }.size
 }.reduce { acc, i -> acc * i }
 
-fun second(): BigInteger {
-    val a = (1..parseInputPartTwo(input).first).filter { second ->
-        ((parseInputPartTwo(input).first - second) * (second)).toBigInteger() > parseInputPartTwo(input).second
-    }
-    return 1.toBigInteger()
-}
-//
-//fun second(): BigInteger = (1..parseInputPartTwo(input).first).filter { second ->
-//    ((parseInputPartTwo(input).first.toInt() - second) * (second)) > parseInputPartTwo(input).second
-//}.size
+fun second(): Int = (1..parseInputPartTwo(input).first).filter { second ->
+    ((parseInputPartTwo(input).first - second) * (SPEED_INCREASE_PER_SECOND * second)) > parseInputPartTwo(input).second
+}.size
 
 fun parseInput(readInput: List<String>): List<Pair<Int, Int>> {
     val digits = readInput.map { it.split("\\s+".toRegex()) }.map {
@@ -41,16 +33,16 @@ fun parseInput(readInput: List<String>): List<Pair<Int, Int>> {
     return time.zip(distance)
 }
 
-fun parseInputPartTwo(readInput: List<String>): Pair<Int, BigInteger> {
+fun parseInputPartTwo(readInput: List<String>): Pair<Long, Long> {
     val digits = readInput.map {
-            it.filter {
-                it.isDigit()
-            }
-        }.filter {
-            it.isNotEmpty()
-        }.map { it.toBigInteger() }
+        it.filter {
+            it.isDigit()
+        }
+    }.filter {
+        it.isNotEmpty()
+    }.map { it.toLong() }
 
-    val time = digits[0].toInt()
+    val time = digits[0]
     val distance = digits[1]
 
     return Pair(time, distance)
