@@ -16,7 +16,13 @@ fun main() {
     println(day4.first())
     println(day4.second())
 
+    println("Day 5:")
+    println(day5.first())
+    println(day5.second())
 
+    println("Day 6:")
+    println(day6.first())
+    println(day6.second())
 }
 
 fun readInput(day: String): List<String> {

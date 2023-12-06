@@ -3,9 +3,9 @@ package day5
 import readInput
 
 fun first() {
-    TODO()
+    // TODO
 }
 
 fun second() {
-    TODO()
+    // TODO
 }

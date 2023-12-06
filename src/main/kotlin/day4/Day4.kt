@@ -40,13 +40,13 @@ fun second(): Int {
             copies.add(it)
         }
     }
-
-    while (copies.size > 0) {
-        returnWinnerNumbersPerCard(drawnNumbers[copies[0] - 1], copies[0] - 1).onEach {
-            copies.add(it)
-        }
-        copies.removeAt(0)
-    }
+//
+//    while (copies.size > 0) {
+//        returnWinnerNumbersPerCard(drawnNumbers[copies[0] - 1], copies[0] - 1).onEach {
+//            copies.add(it)
+//        }
+//        copies.removeAt(0)
+//    }
 
     return amountOfWinningCards
 }
